@@ -17,37 +17,39 @@
             echo"<p>Aucun produit en session ...</p>";
         }
         else{
-            echo "<h1>Récapitulatif des produits</h1>",
-                 "<table>",
-                    "<thead>",
-                        "<tr>",
-                            "<th>#</th>",
-                            "<th>Nom</th>",
-                            "<th>Prix</th>",
-                            "<th>Quantité</th>",
-                            "<th>Total</th>",
-                        "</th>",
-                    "</thead>",
-                    "<tbody>";
-            $totalGeneral = 0;
-            foreach($_SESSION['products'] as $index=>$product){ //$index est le numéro du produit & product les tableaux produit avec toutes leurs propriétés
+            echo "<div class='recapProduits'>",
+                    "<h1>Récapitulatif des produits</h1>",
+                    "<table>",
+                        "<thead>",
+                            "<tr>",
+                                "<th>#</th>",
+                                "<th>Nom</th>",
+                                "<th>Prix</th>",
+                                "<th>Quantité</th>",
+                                "<th>Total</th>",
+                            "</th>",
+                        "</thead>",
+                        "<tbody>";
+                $totalGeneral = 0;
+                foreach($_SESSION['products'] as $index=>$product){ //$index est le numéro du produit & product les tableaux produit avec toutes leurs propriétés
+                    echo "<tr>",
+                            "<td>".$index."</td>",
+                            "<td>".$product["name"]."</td>",
+                            "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>", //"&nbsp;" correspond à un espace insécable (dans le cas de sauts de ligne, le € reste lié au nombre)
+                            "<td>".$product["qtt"]."</td>",
+                            "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
+                        "</tr>";
+                    $totalGeneral += $product['total'];
+                }
                 echo "<tr>",
-                        "<td>".$index."</td>",
-                        "<td>".$product["name"]."</td>",
-                        "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>", //"&nbsp;" correspond à un espace insécable (dans le cas de sauts de ligne, le € reste lié au nombre)
-                        "<td>".$product["qtt"]."</td>",
-                        "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
-                    "</tr>";
-                $totalGeneral += $product['total'];
-            }
-            echo "<tr>",
-                    "<td colspan=4>Total général : </td>", //colspan = pour fusionner des colonnes
-                    "<td><strong>".number_format($totalGeneral,2,",","&nbsp;")."&nbsp;€</strong></td>",
-                "</tbody>",
-                "</table>";
+                        "<td colspan=4>Total général : </td>", //colspan = pour fusionner des colonnes
+                        "<td><strong>".number_format($totalGeneral,2,",","&nbsp;")."&nbsp;€</strong></td>",
+                    "</tbody>",
+                    "</table>",
+                "</div>";
         }
     
     ?>
-    <p><a href="index.php"><= Vers Index</a></p>
+    <div class="navigation"><a href="index.php" class="toIndex"><= Vers Index</a></div>
 </body>
 </html>

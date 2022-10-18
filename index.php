@@ -9,8 +9,7 @@
 </head>
 <body>
     <div class="ajoutProduit">
-
-    <h1>Ajouter un produit</h1>
+        <h1>Ajouter un produit</h1>
         <form action="traitement.php" method="post"> <!-- action="traitement.php" permet d'appeler la page traitement.php au moment du clic sur submit //  POST car formulaire -->
             <p>
                 <label>
@@ -34,13 +33,10 @@
                 <input type="submit" name="submit" value="Ajouter le produit" class="submitBtn">
             </p>
 
-            <p><a href="recap.php" class="toRecap">Vers Recap =></a></p>
-
-
-
         </form>
     </div>
 
+    <div class="navigation"><a href="recap.php">Vers Recap =></a></div>
     
 </body>
 </html>
