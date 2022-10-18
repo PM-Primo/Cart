@@ -51,5 +51,6 @@
     
     ?>
     <div class="navigation"><a href="index.php" class="toIndex"><= Vers Index</a></div>
+    <div class="compteur">Nb de produits : <?php echo sizeof($_SESSION['products']) ?></div>
 </body>
 </html>

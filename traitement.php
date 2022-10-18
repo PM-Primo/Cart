@@ -18,10 +18,18 @@
 
             $_SESSION["products"] []= $product; //on crée dans $_SESSION un tableau "products" dans lequel on range le produit créé par le formulaire
             
+            $message = "Produit ajouté au panier";
+            
         }
-
+        else{
+            $message = "Erreur ! Champs non remplis !";
+        }
+    }
+    else{
+        $message="Erreur ! Champs invalides !";
     }
 
+    $_SESSION["message"] = $message;
     header("Location:index.php"); /*On renvoie à la page index après l'exécution du script*/
 
 ?>
