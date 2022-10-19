@@ -67,6 +67,11 @@ form{
     align-items: center;
 }
 
+.aucunProduit{
+    text-align: center;
+    margin-top: 100px;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -85,4 +90,22 @@ th{
 a
 {
     color: rgb(140, 118, 192);
+}
+
+.messageErreur{
+    text-align: center;
+    color: rgb(241, 82, 8);
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid rgb(241, 82, 8);
+    border-radius: 7px;
+}
+
+.messageValid{
+    text-align: center;
+    color: rgb(41, 168, 49);
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid rgb(41, 168, 49);
+    border-radius: 7px;
 }

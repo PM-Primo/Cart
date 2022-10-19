@@ -38,19 +38,32 @@
             </p>
 
         </form>
+        
+        <div class="navigation"><a href="recap.php">Vers Recap =></a></div>
+        <div class="compteur">Nb de produits : <?php  
+        
+            if (isset($_SESSION['products'])){
+                echo sizeof($_SESSION['products']); 
+            }
+            else{
+                echo "0";
+            }
+            ?>
+        </div>
+            
+    
+        <div class="message">
+            <?php
+    
+                if(isset($_SESSION['message'])){
+                    echo $_SESSION['message'];
+                    $_SESSION['message']="";
+                }
+    
+            ?>
+        </div>
     </div>
 
-    <div class="navigation"><a href="recap.php">Vers Recap =></a></div>
-    <div class="compteur">Nb de produits : <?php echo sizeof($_SESSION['products']); ?></div>
-
-    <?php
-
-    if($_SESSION["message"]){
-        echo $_SESSION["message"];
-        $_SESSION["message"]="";
-    }
-
-    ?>
     
 </body>
 </html>

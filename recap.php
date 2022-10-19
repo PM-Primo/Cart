@@ -14,7 +14,7 @@
 <body>
     <?php 
         if(!isset($_SESSION['products'])|| empty($_SESSION['products'])){ //Si le tableau products rangé dans session est vide 
-            echo"<p>Aucun produit en session ...</p>";
+            echo"<p class='aucunProduit'>Aucun produit en session ...</p>";
         }
         else{
             echo "<div class='recapProduits'>",
@@ -51,6 +51,17 @@
     
     ?>
     <div class="navigation"><a href="index.php" class="toIndex"><= Vers Index</a></div>
-    <div class="compteur">Nb de produits : <?php echo sizeof($_SESSION['products']) ?></div>
+    <div class="compteur">Nb de produits : <?php  
+    
+    if (isset($_SESSION['products'])){
+        echo sizeof($_SESSION['products']); 
+    }
+    else{
+        echo "0";
+    }
+    ?>
+
+    
+</div>
 </body>
 </html>

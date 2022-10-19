@@ -18,15 +18,15 @@
 
             $_SESSION["products"] []= $product; //on crée dans $_SESSION un tableau "products" dans lequel on range le produit créé par le formulaire
             
-            $message = "Produit ajouté au panier";
+            $message = "<div class='messageValid'>Produit ajouté au panier</div>";
             
         }
         else{
-            $message = "Erreur ! Champs non remplis !";
+            $message = "<div class='messageErreur'>Erreur ! Champs non remplis !</div>";
         }
     }
     else{
-        $message="Erreur ! Champs invalides !";
+        $message="<div class='messageErreur'>Erreur ! Champs invalides !</div>";
     }
 
     $_SESSION["message"] = $message;
