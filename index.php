@@ -14,7 +14,7 @@
 <body>
     <div class="ajoutProduit">
         <h1>Ajouter un produit</h1>
-        <form action="traitement.php" method="post"> <!-- action="traitement.php" permet d'appeler la page traitement.php au moment du clic sur submit //  POST car formulaire -->
+        <form action="traitement.php?action=add" method="post"> <!-- action="traitement.php" permet d'appeler la page traitement.php au moment du clic sur submit //  POST car formulaire -->
             <p class="elementForm">
                 <label>
                     Nom du produit :
@@ -38,7 +38,7 @@
             </p>
 
         </form>
-        
+
         <div class="navigation"><a href="recap.php">Vers Recap =></a></div>
         <div class="compteur">Nb de produits : <?php  
         

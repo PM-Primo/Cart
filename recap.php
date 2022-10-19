@@ -27,17 +27,20 @@
                                 "<th>Prix</th>",
                                 "<th>Quantité</th>",
                                 "<th>Total</th>",
+                                "<th>Suppr.</th>",
                             "</th>",
                         "</thead>",
                         "<tbody>";
                 $totalGeneral = 0;
                 foreach($_SESSION['products'] as $index=>$product){ //$index est le numéro du produit & product les tableaux produit avec toutes leurs propriétés
+                    $liensuppr = "traitement.php?action=delete&id=".$index;
                     echo "<tr>",
                             "<td>".$index."</td>",
                             "<td>".$product["name"]."</td>",
                             "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>", //"&nbsp;" correspond à un espace insécable (dans le cas de sauts de ligne, le € reste lié au nombre)
                             "<td>".$product["qtt"]."</td>",
                             "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
+                            "<td><a href='$liensuppr'>Suppr</a></td>",
                         "</tr>";
                     $totalGeneral += $product['total'];
                 }
@@ -61,7 +64,7 @@
     }
     ?>
 
-    
+
 </div>
 </body>
 </html>
