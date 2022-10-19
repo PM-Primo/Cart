@@ -24,6 +24,7 @@
                             "<tr>",
                                 "<th>#</th>",
                                 "<th>Nom</th>",
+                                "<th>Description</th>",
                                 "<th>Prix</th>",
                                 "<th>Quantité</th>",
                                 "<th>Total</th>",
@@ -39,6 +40,7 @@
                     echo "<tr>",
                             "<td>".$index."</td>",
                             "<td>".$product["name"]."</td>",
+                            "<td>".$product['description']."</td>",
                             "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>", //"&nbsp;" correspond à un espace insécable (dans le cas de sauts de ligne, le € reste lié au nombre)
                             "<td><a href='$lienMoins' class='plusMoins'>-</a> ".$product["qtt"]." <a href='$lienPlus' class='plusMoins'>+</a></td>",
                             "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
@@ -66,6 +68,8 @@
     else{
         echo "0";
     }
+
+    var_dump($_SESSION)
     ?>
 
 

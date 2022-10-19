@@ -11,14 +11,16 @@
                     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS); //on vérifie que l'utilisateur n'envoie pas de code malveillant
                     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION); //Vérifier que c'est bien un flottant + autoriser les points ET virgules comme séparateur décimal
                     $qtt= filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT); //vérifier que la qté est un entier
+                    $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     //INPUT_POST = dire qu'on va chercher les infos dans le $_POST
             
-                    if($name && $price && $qtt){ //Si tout est rempli
+                    if($name && $price && $qtt && $description){ //Si tout est rempli
             
                         $product = [
                             "name" => $name,
                             "price" => $price,
                             "qtt" => $qtt,
+                            "description" => $description,
                             "total" => $price*$qtt
                         ];
             
