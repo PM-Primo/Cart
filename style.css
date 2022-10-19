@@ -80,7 +80,7 @@ table, th, td {
 }
 
 td{
-    text-align: right;
+    text-align: center;
     padding: 7px 15px 7px 15px;
 }
 
@@ -109,4 +109,31 @@ a
     margin-top: 30px;
     border: 1px solid rgb(41, 168, 49);
     border-radius: 7px;
+}
+
+.deleteAll{
+    margin-top: 50px;
+    text-align: center; 
+    text-transform: uppercase;
+    padding: 5px;
+    color: rgb(241, 82, 8);
+    text-decoration: none;
+    border-radius: 4px;
+    border: solid 1px rgb(241, 82, 8)
+
+}
+
+.deleteAll:hover{
+    background-color: rgb(241, 82, 8);
+    color: white;
+}
+
+.deleteBtn{
+    color: rgb(241, 82, 8);
+}
+
+.plusMoins{
+    padding: 0 6px 0 6px;
+    text-decoration: none;
+    vertical-align: center;
 }

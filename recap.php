@@ -33,14 +33,16 @@
                         "<tbody>";
                 $totalGeneral = 0;
                 foreach($_SESSION['products'] as $index=>$product){ //$index est le numéro du produit & product les tableaux produit avec toutes leurs propriétés
-                    $liensuppr = "traitement.php?action=delete&id=".$index;
+                    $lienSuppr = "traitement.php?action=delete&id=".$index;
+                    $lienPlus = "traitement.php?action=plus&id=".$index;
+                    $lienMoins = "traitement.php?action=moins&id=".$index;
                     echo "<tr>",
                             "<td>".$index."</td>",
                             "<td>".$product["name"]."</td>",
                             "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>", //"&nbsp;" correspond à un espace insécable (dans le cas de sauts de ligne, le € reste lié au nombre)
-                            "<td>".$product["qtt"]."</td>",
+                            "<td><a href='$lienMoins' class='plusMoins'>-</a> ".$product["qtt"]." <a href='$lienPlus' class='plusMoins'>+</a></td>",
                             "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
-                            "<td><a href='$liensuppr'>Suppr</a></td>",
+                            "<td><a href='$lienSuppr' class='deleteBtn'>Suppr</a></td>",
                         "</tr>";
                     $totalGeneral += $product['total'];
                 }
@@ -49,6 +51,8 @@
                         "<td><strong>".number_format($totalGeneral,2,",","&nbsp;")."&nbsp;€</strong></td>",
                     "</tbody>",
                     "</table>",
+                    "<a href='traitement.php?action=clear' class='deleteAll'>Tout Supprimer</a>",
+
                 "</div>";
         }
     

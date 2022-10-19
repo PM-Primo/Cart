@@ -42,11 +42,48 @@
 
             case "delete":
 
-                $index=$_GET['id'];
-                unset($_SESSION['products'][$index]);
-                $_SESSION['products'] = array_values($_SESSION['products']);
+                if (isset($_GET['id']) && isset($_SESSION['products'][$_GET['id']])){
+                    $index=$_GET['id'];
+                    unset($_SESSION['products'][$index]);
+                    $_SESSION['products'] = array_values($_SESSION['products']);
+                }
                 header("Location:recap.php");
+                break;
 
+            case "clear":
+
+                $_SESSION["products"] = [];
+                header("Location:recap.php");
+                break;
+
+            case "plus":
+
+                if (isset($_GET['id']) && isset($_SESSION['products'][$_GET['id']])){
+                    $index=$_GET['id'];
+                    $_SESSION['products'][$index]['qtt']++;
+                    $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['qtt']*$_SESSION['products'][$index]['price'];
+                }
+                header("Location:recap.php");
+                break;
+
+            case "moins":
+                
+                if (isset($_GET['id']) && isset($_SESSION['products'][$_GET['id']])){
+                    
+                    $index=$_GET['id'];
+
+                    if($_SESSION['products'][$index]['qtt']>1){
+                        $_SESSION['products'][$index]['qtt']--;
+                        $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['qtt']*$_SESSION['products'][$index]['price'];
+                    }
+                    elseif($_SESSION['products'][$index]['qtt']==1){
+                        unset($_SESSION['products'][$index]);
+                        $_SESSION['products'] = array_values($_SESSION['products']);
+                    }
+
+                }
+                header("Location:recap.php");
+                break;
 
         }
 
