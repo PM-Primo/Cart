@@ -26,6 +26,7 @@
                                     "<th>#</th>",
                                     "<th>Nom</th>",
                                     "<th>Description</th>",
+                                    "<th>Image</th>",
                                     "<th>Prix</th>",
                                     "<th>Quantité</th>",
                                     "<th>Total</th>",
@@ -42,6 +43,7 @@
                                 "<td>".$index."</td>",
                                 "<td>".$product["name"]."</td>",
                                 "<td>".$product['description']."</td>",
+                                "<td class='tdImg'><div class='imgContainer'><img alt='une image du produit' src=".$product['image']."></div></td>",
                                 "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>", //"&nbsp;" correspond à un espace insécable (dans le cas de sauts de ligne, le € reste lié au nombre)
                                 "<td><a href='$lienMoins' class='plusMoins'>-</a> ".$product["qtt"]." <a href='$lienPlus' class='plusMoins'>+</a></td>",
                                 "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
@@ -50,7 +52,7 @@
                         $totalGeneral += $product['total'];
                     }
                     echo "<tr>",
-                            "<td colspan=4>Total général : </td>", //colspan = pour fusionner des colonnes
+                            "<td colspan=5>Total général : </td>", //colspan = pour fusionner des colonnes
                             "<td><strong>".number_format($totalGeneral,2,",","&nbsp;")."&nbsp;€</strong></td>",
                         "</tbody>",
                         "</table>",
@@ -58,7 +60,7 @@
 
                     "</div>";
             }
-        
+            
         ?>
         <div class="navigation"><a href="index.php" class="toIndex"><= Vers Index</a></div>
         <div class="compteur">Nb de produits : <?php  

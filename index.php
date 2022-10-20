@@ -15,7 +15,7 @@
     <div class="wrapper">
         <div class="ajoutProduit">
             <h1>Ajouter un produit</h1>
-            <form action="traitement.php?action=add" method="post"> <!-- action="traitement.php" permet d'appeler la page traitement.php au moment du clic sur submit //  POST car formulaire -->
+            <form action="traitement.php?action=add" method="post" enctype= "multipart/form-data"> <!-- action="traitement.php" permet d'appeler la page traitement.php au moment du clic sur submit //  POST car formulaire -->
                 <p class="elementForm">
                     <label>
                         Nom du produit :<br>
@@ -38,6 +38,12 @@
                     <label>
                         Description du produit :<br>
                         <textarea id="description" name="description" rows="6" cols="60" class="champTxt"></textarea>
+                    </label>
+                </p>
+                <p class="elementForm">
+                    <label>
+                        Image :<br>
+                        <input type="file" name="imageProduit">
                     </label>
                 </p>
                 <p>
