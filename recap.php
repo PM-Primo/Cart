@@ -52,7 +52,7 @@
                         $totalGeneral += $product['total'];
                     }
                     echo "<tr>",
-                            "<td colspan=5>Total général : </td>", //colspan = pour fusionner des colonnes
+                            "<td colspan=6>Total général : </td>", //colspan = pour fusionner des colonnes
                             "<td><strong>".number_format($totalGeneral,2,",","&nbsp;")."&nbsp;€</strong></td>",
                         "</tbody>",
                         "</table>",
